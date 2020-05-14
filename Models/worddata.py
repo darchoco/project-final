@@ -84,12 +84,12 @@ class word_calcs:
         if stopwords ==False:
             filteredwords = self.nostopwordlist()
             for word in filteredwords:
-                if (word not in negative_word_list and word not in self.positive_words_list):
+                if (word not in negative_word_list and word not in positive_words_list):
                     neucount = neucount+1
             return neucount
         else:
             allwords = word_tokenize(self.words)
             for word in allwords:
-                if word not in negative_word_list and word not in self.positive_words_list:
+                if (word not in negative_word_list and word not in positive_words_list):
                     neucount = neucount+1
             return neucount
