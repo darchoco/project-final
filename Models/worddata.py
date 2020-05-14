@@ -1,5 +1,6 @@
 import nltk
 import csv
+import os
 import pandas as pd
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.tokenize import PunktSentenceTokenizer
@@ -7,17 +8,31 @@ from nltk.corpus import stopwords
 import nltk.classify.util
 from nltk.classify import NaiveBayesClassifier
 from nltk.corpus import names
-negative_words = open("C:/Users/Kasie/Desktop/python/project-final/static/negative-words.txt", "r")
-positive_words = open("C:/Users/Kasie/Desktop/python/project-final/static/positive-words.txt", "r")
+negative_words = open("static/negative-words.txt", "r")
+positive_words = open("static/positive-words.txt", "r")
 negative_word_list = negative_words.read().splitlines()
 positive_words_list = positive_words.read().splitlines()
 
 # Define class for basic word calculations that contains string of words
 class word_calcs:
-    negative_words = open("C:/Users/Kasie/Desktop/python/project-final/static/negative-words.txt", "r")
-    positive_words = open("C:/Users/Kasie/Desktop/python/project-final/static/positive-words.txt", "r")
+    # Set up directory name to make it universal for where the text file is being stored
+    dirname = os.path.dirname(__file__)
+
+    # Establish location for negative words to be tested
+    negative_filename = os.path.join(dirname, '../static/negative-words.txt')
+
+    # Establish location for positive words to be tested
+    positive_filename = os.path.join(dirname, '../static/positive-words.txt')
+
+    # Open text files
+    negative_words = open(negative_filename, "r")
+    positive_words = open(positive_filename, "r")
+
+    #convert to lists to iterate through 
     negative_word_list = negative_words.read().splitlines()
     positive_words_list = positive_words.read().splitlines()
+
+    # convert words to lower to ensure it will always be the same format
     def __init__(self,words):
         self.words = words.lower()
 
