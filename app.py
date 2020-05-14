@@ -8,8 +8,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from Models import worddata
 from flask import Flask, jsonify, render_template, request
-
-
+import joblib
+model =joblib.load('genreguesser.sav')
 #################################################
 # Flask Setup
 #################################################
@@ -31,7 +31,32 @@ def my_form_post():
     processed_text = text.lower()
     print(processed_text)
     words = worddata.word_calcs(processed_text)
-    return str(words.negativewordcount())
+    wordcount = words.wordcount()
+    nostopwordcount = words.nostopwordcount()
+    positivewordcount = words.positivewordcount()
+    negativewordcount = words.negativewordcount()
+    neutralwordcount = words.negativewordcount()
+    stats = [wordcount,nostopwordcount,positivewordcount,negativewordcount,neutralwordcount]
+    return_value = model.predict([stats])
+    # 0 return is Christian, 1 is Country, 2 is Hip Hop/Rap, 3 is Rhythm and Blues, 4 is rock
+    
+    if return_value[0] ==0:
+        final_return = "Christian"
+        return final_return
+    elif return_value[0]  ==1:
+        final_return = "Country"
+        return final_return
+    elif return_value[0] ==2:
+        final_return = "Hip Hop/Rap"
+        return final_return
+    elif return_value[0] ==3:
+        final_return = "Rhythm and Blues"
+        return final_return
+    elif return_value[0] ==4:
+        final_return = "Rock"
+        return final_return      
+    else:
+        return print("STAHP I'M ALREADY DEAD")
 
 if __name__ == '__main__':
     app.run(debug=True)
