@@ -25,11 +25,11 @@ def welcome():
     #call html template
     return render_template('index.html')
 
+# Set up Post method for handling data inputted into text box
 @app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['text']
     processed_text = text.lower()
-    print(processed_text)
     words = worddata.word_calcs(processed_text)
     wordcount = words.wordcount()
     nostopwordcount = words.nostopwordcount()
@@ -40,9 +40,11 @@ def my_form_post():
     neutralwordcount = words.negativewordcount()
     neutralpercent = round(neutralwordcount/nostopwordcount*100,2)
     stats = [wordcount,nostopwordcount,positivewordcount,positivepercent,negativewordcount,negativepercent,neutralwordcount,neutralpercent]
+
+    # Predict the values between the 5 categories: Christian, Country, Hip Hop/Rap, Rhythm and Blues, and Rock
     return_value = model.predict([stats])
-    print(return_value[0])
-    # 0 return is Christian, 1 is Country, 2 is Hip Hop/Rap, 3 is Rhythm and Blues, 4 is rock
+
+    # Return the predicted genre that will then be inputted on the html
     return render_template('index.html', final_returns = return_value[0])
 
 @app.route("/Christian")
