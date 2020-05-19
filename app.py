@@ -96,7 +96,12 @@ def rnb():
 @app.route("/rock")
 def rock():
     #call html template
-    return render_template('rock.html')    
+    return render_template('rock.html')
+
+@app.route("/about")
+def about():
+    #call html template
+    return render_template('about.html')       
 
 if __name__ == '__main__':
     app.run(debug=True)

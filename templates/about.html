@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Lyric Generator</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="..">lyric categorizer
+              <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Christian">Christian</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Country">Country</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="hiphop">Hip Hop/Rap</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="rnb">Rhythm and Blues</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="rock">Rock
+          </a>
+          <li class="nav-item active">
+            <a class="nav-link" href="about">about this model
+              <span class="sr-only">(current)</span></a>
+          </li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5"><u>About The Model</u></h1>
+        <h2 class="mt-5">How Accurate Is The Model?</h2>
+   
+        <p style="text-align: left;"> Currently the model sits at approximately 52% accuracy. This shows that it is not very likely to be able to fully predict on lyric data alone. 
+          This can be due to a few different impacts. For instance, further subgenres (Metal or rock, Rap and hip hop separated, classic country versus modern)
+        could show deeper trends that can make the model more accurate. The genre categorization could also be heavily disputed, as it was based on categories provided from the lyric source. </p>
+        <h3 class="mt-5">What Data Was Used?</h3>
+        <p style="text-align: left;"> The genre-based lyrics were web scraped from <a href="www.songlyrics.com">www.songlyrics.com</a>. From there, the lyrics based on each individual song was tokenized to individual words utilizing python repository <a href = "https://www.nltk.org/">nltk (Natural Language ToolKit)</a>. 
+          nltk also allowed for removal of "stop" words, such as "and", "of", "in", etc to allow for the identification of more unique word use. Both counts of words with stop words and without stop words were calculated.
+          finally, a count of words considered negative, positive, and neutral was made utilizing nltk and a lexicon of positive and negative words identified in <a href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html#lexicon">a cambridge university study.</a> 
+        <h2 class="mt-5 text-center">How Useful Was The Data?</h2>
+        <div class="row">
+        <div class = "column"> <img src = "../static/countbynegative.png"></div>
+        <div class = "column"> <img src = "../static/countbypositive.png" ></div>
+        <div class = "column"> <img src = "../static/countbyneutral.png" ></div>
+        <div class = "column"> <img src = "../static/averagewordcount.png" ></div>
+      <div class="col-lg-12 text-center">
+        <p style="text-align: left;"> Based on the provided data, lyrics alone show a huge cluster of similar points. The more common spread out category is Hip Hop/Rap, hence why the most common return is that category. 
+          Other useful data that could be considered to increase the accuracy of the model is beats per minutes, types of instruments, and possibly the gender of the singer.
+        </p>
+      </div>
+
+
+  
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../static/vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
