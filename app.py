@@ -46,10 +46,27 @@ def my_form_post():
 
     # Define barchart by results
 
+    if return_value == "Christian":
+        barchart = "christian_barchart" 
+
+    elif return_value == "Country":
+        barchart = "christian_barchart" 
+
+    elif return_value == "Hip Hop/Rap":
+        barchart = "rap_barchart" 
+
+    elif return_value == "Country":
+        barchart = "rnb_barchart" 
+
+    elif return_value == "Rock":
+        barchart = "rock_barchart" 
+
+    else:
+        pass
 
 
     # Return the predicted genre that will then be inputted on the html
-    return render_template('index.html', final_returns = return_value[0], barchart = "rock_barchart")
+    return render_template('index.html', final_returns = return_value[0], barchart = barchart)
 
 @app.route("/Christian")
 def christian():
