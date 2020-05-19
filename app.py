@@ -44,8 +44,12 @@ def my_form_post():
     # Predict the values between the 5 categories: Christian, Country, Hip Hop/Rap, Rhythm and Blues, and Rock
     return_value = model.predict([stats])
 
+    # Define barchart by results
+
+
+
     # Return the predicted genre that will then be inputted on the html
-    return render_template('index.html', final_returns = return_value[0])
+    return render_template('index.html', final_returns = return_value[0], barchart = "rock_barchart")
 
 @app.route("/Christian")
 def christian():
