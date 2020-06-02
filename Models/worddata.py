@@ -108,3 +108,5 @@ class word_calcs:
                 if (word not in negative_word_list and word not in positive_words_list):
                     neucount = neucount+1
             return neucount
+
+    

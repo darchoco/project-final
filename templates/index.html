@@ -12,6 +12,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/style.css" rel="stylesheet">
 
 </head>
 
@@ -20,16 +21,12 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="..">Lyrics Categorizer</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="">lyric categorizer
-              <span class="sr-only">(current)</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="Christian">Christian</a>
           </li>
@@ -47,7 +44,7 @@
             </span>
           </a>
           <li class="nav-item">
-            <a class="nav-link" href="about">about this model
+            <a class="nav-link" href="about">About This Model
             </span>
           </a>
           </li>
@@ -66,12 +63,20 @@
           <input name="text">
           <input type="submit">
       </form>
+    
           <h1 class="mt-5">{{final_returns}}</h1>
-        </ul>
-        <img src = "../static/{{barchart}}.png" alt = "Test Image" align="left" onerror="this.onerror=null; this.src='../static/Default.png'"/>
-        <img src = "../static/{{piechart}}.png" alt = "Test Image" align="right" onerror="this.onerror=null; this.src='../static/Default.png'"/>
+        </div>
       </div>
-          </div>
+        <div class="row">
+          <div class = "column" style = "float: center; width:50%"> <img src = "../static/{{barchart}}.png" alt = "Test Image"  onerror="this.onerror=null; this.src='../static/Default.png'"/> </div>
+       <div class = "column" style = "float: center; width:50%"> <img src = "../static/{{piechart}}.png" alt = "Test Image"  onerror="this.onerror=null; this.src='../static/Default.png'"/> </div>
+       </div>
+       <div class="row">
+        <div class = "column" style = "float: center; width:50%"> <img src = "../static/{{currentbar}}.png" alt = "Test Image"  onerror="this.onerror=null; this.src='../static/Default.png'"/> </div>
+          <div class = "column" style = "float: center; width:50%"><img src = "../static/{{currentpie}}.png" alt = "Test Image" onerror="this.onerror=null; this.src='../static/Default.png'"/> </div>
+      </div>
+      
+          
   </div>
 
 
